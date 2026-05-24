@@ -64,4 +64,4 @@ Consulte o [CHANGELOG.md](CHANGELOG.md) para o histórico completo de versões.
 
 Este projeto é um Vade Mecum digital pessoal desenvolvido por um advogado com o auxílio de IAs (Claude, ChatGPT, Gemini). O objetivo é demonstrar que profissionais do direito podem construir ferramentas úteis para sua própria prática sem necessariamente serem desenvolvedores.
 
-A base de dados do índice remissivo é extraída manualmente do Vade Mecum físico via OCR assistido por IA, seguindo uma pipeline documentada em `pipeline/`.
+A base de dados do índice remissivo foi extraída manualmente via OCR assistido por IA, seguindo uma pipeline documentada em `pipeline/`.
