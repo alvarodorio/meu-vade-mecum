@@ -49,10 +49,10 @@ O índice remissivo é gerado a partir do Vade Mecum físico em três fases:
 2. **Transformação (Fase 3)** — prompt a criar em `pipeline/prompt-json.md`; converte o texto bruto consolidado em JSON no formato acima
 3. **Importação** — o JSON é colado no campo "Importar Dados da IA" na aba Gerenciar
 
-## Vade Mecum físico (fonte dos dados)
+## Fonte dos dados
 
 Conteúdo coberto: CF, CP, CPP, CPM, LINDB, Legislação Complementar, Súmulas (STF vinculantes, STF, STJ, TFR).
-Índices remissivos a extrair: CF/CP/CPP (pág. 1370), Legislação Complementar (pág. 1447), Súmulas (pág. 1470) — total ~60+ páginas.
+Índices remissivos a extrair: CF/CP/CPP, Legislação Complementar e Súmulas — total ~60+ páginas.
 
 ## Perfil do desenvolvedor
 
