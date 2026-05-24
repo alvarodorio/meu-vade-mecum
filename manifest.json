@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Busca Rápida de Leis",
+  "version": "3.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage"
+  ]
+}

@@ -1,0 +1,20 @@
+# Conversas privadas com IAs (contexto de desenvolvimento)
+conversa com ChatGPT*.txt
+conversa com gemini*.txt
+
+# Arquivos Word
+*.docx
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de dados na raiz (versões organizadas estão em data/)
+sumário.txt
+lista de abreviaturas.txt
+indice cronológico.txt
+indice remissivo.txt
+
+# Pasta interna do Claude Code (memória e configurações locais)
+.claude/

@@ -1,0 +1,167 @@
+ABNT    Associação Brasileira de Normas Técnicas
+Ac.    Acórdão
+ACC    Autorização para Conduzir Ciclomotor
+ADCT    Ato das Disposições Constitucionais Transitórias
+ADECON    Ação Declaratória de Constitucionalidade
+ADIN    Ação Direta de Inconstitucionalidade
+ADPF    Arguição de Descumprimento de Preceito Funda-
+mental
+AGNU    Assembleia Geral das Nações Unidas
+AgReg    Agravo Regimental
+ANEEL    Agência Nacional de Energia Elétrica
+ANTP    Associação Nacional de Transportes Públicos
+ANTT    Agência Nacional de Transportes Terrestres
+APEX    Autorização Provisória Experimental
+Art.    Artigo
+Arts.    Artigos
+CADE    Conselho Administrativo de Defesa Econômica
+CAT    Certificado de Adequação à Legislação de Trânsito
+C/C    combinado com
+CC/1916    Código Civil de 1916
+CC    Código Civil (Lei nº 10.406/2002)
+CCom.    Código Comercial (Lei nº 556/1850)
+CDC    Código de Defesa do Consumidor (Lei nº
+8.078/1990)
+CE    Código Eleitoral (Lei nº 4.737/1965)
+CEF    Caixa Econômica Federal
+CETRAN    Conselho Estadual de Trânsito
+CF    Constituição Federal
+CFC    Centro de Formação de Condutores
+CGJT    Corregedoria-Geral da Justiça do Trabalho Civil
+CLT    Consolidação das Leis do Trabalho (Dec.-lei nº
+5.452/1943)
+CNH    Carteira Nacional de Habilitação
+CNJ    Conselho Nacional de Justiça
+CNSP    Conselho Nacional de Seguros Privados
+CONAMA    Conselho Nacional do Meio Ambiente
+CONMETRO    Conselho Nacional de Metrologia, Normatização e
+Qualidade Industrial
+CONTRAN    Conselho Nacional de Trânsito
+CONTRANDIFE    Conselho de Trânsito do Distrito Federal
+CP    Código Penal (Dec.-lei nº 2.848/1940)
+CPC/2015    Código de Processo Civil (Lei nº 13.105/2015)
+CPM    Código Penal Militar (Dec.-lei nº 1.001/1969)
+CPP    Código de Processo Penal (Dec.-lei nº 3.689/1941)
+CPPM    Código de Processo Penal Militar (Dec.-lei nº
+1.002/1969)
+Crim.    Criminal
+CRLV    Certificado de Registro e Licenciamento de Veículo
+CRV    Certificado de Registro de Veículo
+CSV    Certificado de Segurança Veicular
+CTB    Código de Trânsito Brasileiro
+CTN    Código Tributário Nacional (Lei nº 5.172/1963)
+CTVV    Convenção sobre Trânsito Viário de Viena
+CVM    Comissão de Valores Mobiliários
+
+Dec.    Decreto
+Dec.-lei    Decreto-lei
+Del.    Deliberação
+DENATRAN    Departamento Nacional de Trânsito
+DETRAN    Departamento Estadual de Trânsito
+DJ    Diário da Justiça
+DJE    Diário da Justiça Eletrônica
+DNIT    Departamento Nacional de Infraestrutura de Trans-
+portes
+DOU    Diário Oficial da União
+DPVAT    Seguro Obrigatório de Danos Pessoais Causados
+por Veículos Automotores de Via Terrestre, ou por
+sua Carga, a Pessoas Transportadas ou não
+DSST    Departamento de Segurança e Saúde no Trabalho
+EC    Emenda Constitucional
+ECA    Estatuto da Criança e do Adolescente (Lei nº
+8.069/1990)
+ECR    Emenda Constitucional de Revisão
+En.    Enunciado
+EOAB    Estatuto da Ordem dos Advogados do Brasil (Lei nº
+8.906/1994)
+ER    Emenda Regimental
+ERE    Embargos em Recurso Extraordinário
+FAT    Fundo de Amparo ao Trabalhador
+FGTS    Fundo de Garantia do Tempo de Serviço
+FONAJE    Fórum Nacional dos Juizados Especiais
+FONAJEF    Fórum Nacional dos Juizados Especiais Federais
+FNMC    Fundo Nacional sobre Mudança do Clima
+FUNSET    Fundo Nacional de Segurança e Educação de Trân-
+sito
+HC    Habeas Corpus
+IN    Instrução Normativa
+INMETRO    Instituto Nacional de Metrologia, Qualidade e Tec-
+nologia (denominação alterada pela Lei nº 12.545/
+2011)
+Inq.    Inquérito
+IPVA    Imposto sobre a Propriedade de Veículo Automotor
+ITL    Instituição Técnica Licenciada
+j.    Julgamento
+JARI    Junta Administrativa de Recurso de Infrações
+JEC    Juizado Especial Civil
+JECrim    Juizado Especial Criminal
+JEF    Juizado Especial Federal
+LADV    Licença para Aprendizagem de Direção Veicular
+LC    Lei Complementar
+LCP    Lei das Contravenções Penais (Dec.-lei nº
+3.688/1941)
+LEP    Lei de Execução Penal (Lei nº 7.210/1984)
+LINDB    Lei de Introdução às normas do Direito Brasileiro
+(Dec.-Lei nº 4.657/1942)
+MJ    Ministério da Justiça
+MP    Medida Provisória
+MPAS    Ministério da Previdência e Assistência Social
+MTb    Ministério do Trabalho, atual Ministério do Trabalho
+e Emprego – MTE
+
+MTE    Ministério do Trabalho e Emprego
+OAB    Ordem dos Advogados do Brasil
+OIT    Organização Internacional do Trabalho
+OJ    Orientação Jurisprudencial
+PN    Precedente Normativo
+Port.    Portaria
+RAC    Regulamento de Avaliação de Conformidade
+RE    Recurso Extraordinário
+REFIS    Programa de Recuperação Fiscal
+RENACH    Registro Nacional de Condutores Habilitados
+RENACOM    Registro Nacional de Cobrança de Multas
+RENAINF    Registro Nacional de Infrações de Trânsito
+RENAVAN    Registro Nacional de Veículos Automotores
+RENFOR    Rede Nacional de Formação e Habilitação de Con-
+dutores
+REPORTO    Regime Tributário para Incentivo à Modernização e
+à Ampliação da Estrutura Portuária
+Repre.    Representação
+Res.    Resolução
+Res. Adm.    Resolução Administrativa
+Res. Norm.    Resolução Normativa
+REsp.    Recurso Especial
+RFB    Receita Federal do Brasil
+RHC    Recurso de Habeas Corpus
+RISTF    Regimento Interno do Supremo Tribunal Federal
+RISTJ    Regimento Interno do Superior Tribunal de Justiça
+RITST    Regimento Interno do Tribunal Superior do Trabalho
+SDC    Seção de Dissídios Coletivos
+SDE    Secretaria de Direito Econômico
+
+SDI    Seção de Dissídios Individuais
+SEAE    Secretaria de Acompanhamento Econômico
+SECEX    Secretaria de Comércio Exterior
+SEFIT    Secretaria de Fiscalização do Trabalho
+Segs.    Seguintes
+SF    Senado Federal
+SINET    Sistema Nacional de Estatísticas de Trânsito
+SIT    Secretaria de Inspeção do Trabalho
+SNT    Sistema Nacional de Trânsito
+SRT    Secretaria de Relações do Trabalho
+SS    Suspensão de Segurança
+STF    Supremo Tribunal Federal
+STJ    Superior Tribunal de Justiça
+STM    Superior Tribunal Militar
+Súm.    Súmula
+Súm. Vinc.    Súmula Vinculante
+SUSEP    Superintendência de Seguros Privados
+TDA    Títulos da Dívida Agrária
+TFR    Tribunal Federal de Recursos
+TJ    Tribunal de Justiça
+TNU-JEF    Turma Nacional de Uniformização de Jurisprudên-
+cia dos Juizados Especiais Federais
+TRF    Tribunal Regional Federal
+TRT    Tribunal Regional do Trabalho
+TSE    Tribunal Superior Eleitoral
+TST    Tribunal Superior do Trabalho
