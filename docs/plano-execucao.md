@@ -22,12 +22,12 @@ Status possíveis: `[ ]` pendente · `[→]` em andamento · `[x]` concluído
 ## v4.0 — Índice remissivo com dados reais (CF/CP/CPP)
 
 - [x] Texto bruto parcialmente extraído (data/indice-remissivo-bruto.txt)
-- [ ] **Passo 1:** Avaliar cobertura do arquivo atual — completo ou falta páginas?
-- [ ] **Passo 2:** Completar extração OCR se necessário (usar pipeline/prompt-ocr.md)
-- [ ] **Passo 3:** Criar prompt de transformação (pipeline/prompt-json.md)
-- [ ] **Passo 4:** Gerar JSON a partir do texto bruto
-- [ ] **Passo 5:** Importar JSON na extensão e testar end-to-end
-- [ ] **Passo 6:** Commit v4.0 + atualizar CHANGELOG.md
+- [x] **Passo 1:** Avaliar cobertura — páginas 1371–1446 completas (A–Z, sem lacunas)
+- [x] **Passo 2:** OCR concluído (não foi necessário completar)
+- [x] **Passo 3:** Script de transformação criado (`scripts/transform-ocr-to-json.py`)
+- [x] **Passo 4:** JSON gerado — 6.451 entradas (CP, CPP, CF, CPM, CTB, LEP, Súmulas)
+- [x] **Passo 5:** JSON importado via `admin/carregar-indice.html`; navegação testada end-to-end
+- [x] **Passo 6:** Commit v4.0 + CHANGELOG.md atualizado
 
 ---
 

@@ -1,10 +1,11 @@
 const defaultLeis = [
-  { sigla: "CP", nome: "Código Penal", url: "https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm", limite: 361 },
-  { sigla: "CPC", nome: "Código de Processo Civil", url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm", limite: 1072 },
-  { sigla: "CC", nome: "Código Civil", url: "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm", limite: 2046 },
-  { sigla: "CDC", nome: "Cód. Defesa do Consumidor", url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm", limite: 119 },
-  { sigla: "LGPD", nome: "LGPD", url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm", limite: 65 },
-  { sigla: "CF", nome: "Constituição Federal", url: "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm", limite: 250 }
+  { sigla: "CP",  nome: "Código Penal",                url: "https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm",              limite: 361  },
+  { sigla: "CPP", nome: "Código de Processo Penal",    url: "https://www.planalto.gov.br/ccivil_03/decreto-lei/del3689compilado.htm",              limite: 811  },
+  { sigla: "CPC", nome: "Código de Processo Civil",    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm",             limite: 1072 },
+  { sigla: "CC",  nome: "Código Civil",                url: "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm",                 limite: 2046 },
+  { sigla: "CDC", nome: "Cód. Defesa do Consumidor",   url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",                      limite: 119  },
+  { sigla: "LGPD",nome: "LGPD",                        url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm",    limite: 65   },
+  { sigla: "CF",  nome: "Constituição Federal",        url: "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",        limite: 250  }
 ];
 
 let minhasLeis = [];
@@ -13,7 +14,19 @@ let indiceRemissivo = [];
 document.addEventListener('DOMContentLoaded', () => {
   chrome.storage.local.get(['leisSalvas', 'rascunhoNovo', 'indiceRemissivo'], (result) => {
     minhasLeis = (result.leisSalvas && result.leisSalvas.length > 0) ? result.leisSalvas : defaultLeis;
-    if (minhasLeis === defaultLeis) salvarNoStorage();
+    if (minhasLeis === defaultLeis) {
+      salvarNoStorage();
+    } else {
+      // Adiciona ao storage qualquer lei padrão ainda não cadastrada
+      let changed = false;
+      defaultLeis.forEach(def => {
+        if (!minhasLeis.some(l => l.sigla.toUpperCase() === def.sigla.toUpperCase())) {
+          minhasLeis.push(def);
+          changed = true;
+        }
+      });
+      if (changed) salvarNoStorage();
+    }
     
     indiceRemissivo = result.indiceRemissivo || [];
 
@@ -66,19 +79,25 @@ function dispararLinkArtigo(sigla, artigoStr, urlForcada = null) {
     return;
   }
 
-  const isCP = lei.url.includes("del2848");
   let buscaStr = artigoStr.toString().trim();
+  // "337-A a 337-D" → navega para o primeiro artigo da faixa
+  const faixa = buscaStr.match(/^(\d+(?:-[A-Z])?)\s+a\s+/i);
+  if (faixa) buscaStr = faixa[1];
   let num = parseInt(buscaStr);
 
   if (num > 0 && num <= 9 && !buscaStr.includes('º')) buscaStr += 'º';
-  if (isCP) {
-    if (!buscaStr.includes('-')) buscaStr += ' -';
-  } else {
-    if (num >= 10 && !buscaStr.includes('.')) buscaStr += '.';
-  }
 
-  const textoBusca = `Art. ${buscaStr}`;
-  const urlFinal = `${lei.url}#:~:text=${encodeURIComponent(textoBusca)}`;
+  let urlFinal;
+  const temSufixo = buscaStr.includes('-') || buscaStr.includes('º');
+  if (temSufixo) {
+    // Artigo com letra (28-A) ou ordinal (5º): sem pontuação final, match de prefixo
+    urlFinal = `${lei.url}#:~:text=${encodeURIComponent('Art. ' + buscaStr)}`;
+  } else {
+    // Tenta traço (CP) e ponto (demais leis) — Chrome usa o primeiro que encontrar
+    const t1 = encodeURIComponent(`Art. ${buscaStr} -`);
+    const t2 = encodeURIComponent(`Art. ${buscaStr}.`);
+    urlFinal = `${lei.url}#:~:text=${t1}&text=${t2}`;
+  }
   chrome.tabs.create({ url: urlFinal });
 }
 

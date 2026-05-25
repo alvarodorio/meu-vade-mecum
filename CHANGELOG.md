@@ -6,6 +6,22 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/) e o 
 
 ---
 
+## [4.0.0] — 2026-05-24
+
+### Adicionado
+- **Índice remissivo com dados reais**: 6.451 entradas cobrindo CP, CPP, CF, CPM, CTB, LEP, Súmulas STF/STJ e OAB
+- **CPP** adicionado às leis padrão (`defaultLeis`) com URL e limite corretos
+- **Página admin** (`admin/carregar-indice.html`) para importação do JSON via interface gráfica
+- **Auto-merge de leis padrão**: ao iniciar, a extensão adiciona automaticamente ao storage qualquer lei padrão ainda não cadastrada
+
+### Corrigido
+- Script de transformação OCR (`scripts/transform-ocr-to-json.py`) preserva sufixos de letra nos artigos (ex: `168-A`, `28-A`, `337-B`) — antes eram truncados para apenas o número
+- Navegação do índice remissivo: ao clicar em uma remissão, abre a lei **e posiciona diretamente no artigo** via `#:~:text=`
+- Lógica de formatação de artigo tornada resiliente: tenta o formato traço (`Art. 22 -`, usado pelo CP) **e** o formato ponto (`Art. 22.`, usado pelas demais leis) — o Chrome usa o primeiro que encontrar na página
+- Script inline na página admin movido para arquivo externo (`admin/carregar-indice.js`) para conformidade com CSP do Manifest V3
+
+---
+
 ## [3.0.0] — 2026-05-24
 
 ### Adicionado

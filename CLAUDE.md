@@ -45,9 +45,27 @@ Extensão Chrome chamada **"Busca Rápida de Leis"** (Meu Vade Mecum), desenvolv
 
 O índice remissivo é gerado a partir do Vade Mecum físico em três fases:
 
-1. **OCR (Fase 2)** — prompt documentado em `pipeline/prompt-ocr.md`; a IA transcreve o texto bruto das páginas escaneadas, 2 páginas por vez, aguardando "siga"
-2. **Transformação (Fase 3)** — prompt a criar em `pipeline/prompt-json.md`; converte o texto bruto consolidado em JSON no formato acima
-3. **Importação** — o JSON é colado no campo "Importar Dados da IA" na aba Gerenciar
+1. **OCR (Fase 2)** — Claude Code lê os JPGs em `Imagens - Vade/indice alf rem cf cp cpp_2/` dois a dois e transcreve para `data/indice-remissivo-bruto.txt` com marcadores `[PÁGINA XXXX]`.
+2. **Transformação (Fase 3)** — Script `scripts/transform-ocr-to-json.py` converte o texto bruto em `data/indice-remissivo.json` (~6.400 entradas no formato da extensão).
+3. **Carga no storage (admin)** — Página interna da extensão carrega o JSON direto no `chrome.storage.local`.
+
+### Como atualizar o índice remissivo em massa (uso do administrador)
+
+Quando o `indice-remissivo.json` for regenerado (novo OCR ou correções), siga estes passos:
+
+1. Rode o script de transformação:
+   ```
+   python scripts/transform-ocr-to-json.py
+   ```
+2. No Chrome, abra a URL da página admin da extensão:
+   ```
+   chrome-extension://[ID_DA_EXTENSAO]/admin/carregar-indice.html
+   ```
+   O ID aparece em `chrome://extensions` abaixo do nome da extensão.
+3. Clique em **"Escolher arquivo"**, selecione `data/indice-remissivo.json` e clique em **"Carregar no storage"**.
+4. A mensagem de sucesso confirma o número de entradas carregadas.
+
+> A página `admin/carregar-indice.html` não aparece na interface da extensão — é de uso exclusivo do administrador.
 
 ## Fonte dos dados
 
@@ -60,6 +78,11 @@ Alvaro não é programador — desenvolveu o projeto com auxílio de IAs. Prefer
 
 ## Estado atual
 
-- v3.0 funcional e instalada no Chrome
-- Índice remissivo ainda sem dados (pendente Fases 2 e 3)
-- Repositório GitHub recém-criado para portfólio
+- **v4.0 funcional e instalada no Chrome**
+- OCR concluído: `data/indice-remissivo-bruto.txt` cobre páginas 1371–1446 (A–Z, sem lacunas)
+- Transformação concluída: `data/indice-remissivo.json` com 6.451 entradas (CP, CPP, CF, CTB, CPM, LEP, Súmulas STF/STJ, OAB)
+- JSON carregado no storage via `admin/carregar-indice.html`; aba Índice funcional com navegação end-to-end
+- Navegação de artigos usa duplo fragmento de texto (`Art. N -` e `Art. N.`) para suportar tanto o CP quanto as demais leis
+- Pendente: redesenhar seção "Importar" do popup para remissões personalizadas do usuário
+- Pendente: funcionalidade de edição de leis na aba Gerenciar
+- Repositório GitHub público: alvarodorio/meu-vade-mecum

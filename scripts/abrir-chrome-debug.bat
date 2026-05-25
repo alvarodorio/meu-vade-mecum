@@ -1,0 +1,3 @@
+@echo off
+echo Abrindo Chrome no modo debug para automacao OCR...
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --profile-directory=Default

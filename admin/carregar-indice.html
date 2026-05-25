@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin — Carregar Índice Remissivo</title>
+  <style>
+    body { font-family: sans-serif; max-width: 540px; margin: 60px auto; padding: 0 20px; color: #222; }
+    h1 { font-size: 1.2rem; margin-bottom: 4px; }
+    p  { color: #555; font-size: 0.9rem; margin-bottom: 24px; }
+    input[type="file"] { display: block; margin-bottom: 16px; }
+    button { padding: 10px 24px; background: #1a56db; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+    button:disabled { background: #999; cursor: default; }
+    #status { margin-top: 20px; font-weight: bold; }
+    .ok  { color: #15803d; }
+    .err { color: #dc2626; }
+  </style>
+</head>
+<body>
+  <h1>Carregar Índice Remissivo</h1>
+  <p>Selecione o arquivo <code>indice-remissivo.json</code> gerado pelo script de transformação.</p>
+
+  <input type="file" id="arquivo" accept=".json">
+  <button id="btn" disabled>Carregar no storage</button>
+  <div id="status"></div>
+
+  <script src="carregar-indice.js"></script>
+</body>
+</html>
