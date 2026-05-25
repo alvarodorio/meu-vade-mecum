@@ -2,6 +2,11 @@
 
 Este arquivo descreve o projeto para o Claude Code, para que futuras sessões de desenvolvimento tenham contexto imediato sem precisar repassar o histórico.
 
+## Workflow obrigatório a cada sessão
+
+1. **Ao iniciar:** ler `docs/plano-execucao.md` para saber em qual versão estamos e quais passos estão pendentes.
+2. **Ao encerrar:** bump de versão no `manifest.json`, entrada no `CHANGELOG.md`, atualizar `CLAUDE.md`, marcar passos concluídos no `docs/plano-execucao.md`, commit e push para o GitHub.
+
 ## O que é este projeto
 
 Extensão Chrome chamada **"Busca Rápida de Leis"** (Meu Vade Mecum), desenvolvida por Alvaro Souza, advogado. É um Vade Mecum digital pessoal que permite acessar artigos de leis diretamente no Planalto.gov.br e consultar um índice remissivo extraído de um Vade Mecum físico de Direito Penal.
