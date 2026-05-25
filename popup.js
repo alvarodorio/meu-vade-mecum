@@ -5,8 +5,17 @@ const defaultLeis = [
   { sigla: "CC",  nome: "Código Civil",                url: "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm",                 limite: 2046 },
   { sigla: "CDC", nome: "Cód. Defesa do Consumidor",   url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",                      limite: 119  },
   { sigla: "LGPD",nome: "LGPD",                        url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm",    limite: 65   },
-  { sigla: "CF",  nome: "Constituição Federal",        url: "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",        limite: 250  }
+  { sigla: "CF",  nome: "Constituição Federal",        url: "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",        limite: 250  },
+  { sigla: "ECA", nome: "Estatuto da Criança e do Adolescente", url: "https://www.planalto.gov.br/ccivil_03/leis/l8069.htm",                      limite: 267  },
+  { sigla: "ED",  nome: "Estatuto do Desarmamento",    url: "https://www.planalto.gov.br/ccivil_03/leis/2003/l10826.htm",                         limite: 37   }
 ];
+
+// Mapeamento de texto "Vide" que aponta para nome de lei → sigla cadastrada
+const VIDE_LEI_MAP = {
+  'estatuto da criança e do adolescente': 'ECA',
+  'estatuto da crianca e do adolescente': 'ECA',
+  'estatuto do desarmamento':             'ED',
+};
 
 let minhasLeis = [];
 let indiceRemissivo = [];
@@ -146,14 +155,59 @@ function montarBotoesAZ() {
   });
 }
 
+function filtrarPorTermo(raw) {
+  const trimmed = raw.trim();
+  // Busca com aspas: "frase exata" → substring exato
+  if (trimmed.startsWith('"') && trimmed.endsWith('"') && trimmed.length > 2) {
+    const frase = trimmed.slice(1, -1).toLowerCase();
+    return indiceRemissivo.filter(item => item.termo.toLowerCase().includes(frase));
+  }
+  // Sem aspas: todas as palavras devem estar presentes (AND)
+  const palavras = trimmed.toLowerCase().split(/\s+/).filter(p => p.length > 0);
+  return indiceRemissivo.filter(item => {
+    const t = item.termo.toLowerCase();
+    return palavras.every(p => t.includes(p));
+  });
+}
+
+function buscarNoIndice(termo) {
+  // Muda para a aba Índice
+  document.querySelectorAll('.aba-btn').forEach(b => b.classList.remove('ativa'));
+  document.querySelector('.aba-btn[data-alvo="tela-indice"]').classList.add('ativa');
+  document.querySelectorAll('.tela').forEach(t => t.classList.add('hidden'));
+  document.getElementById('tela-indice').classList.remove('hidden');
+
+  // Preenche o campo com destaque visual para sinalizar a navegação
+  const campo = document.getElementById('busca-termo');
+  campo.value = termo;
+  campo.style.background = '#fef9c3';
+  setTimeout(() => { campo.style.background = ''; }, 1000);
+
+  // startsWith: "Vide Réu" mostra apenas RÉU e RÉU > sub-termos, não tudo que contém "réu"
+  const filtrado = indiceRemissivo.filter(item => item.termo.toLowerCase().startsWith(termo.toLowerCase()));
+  renderizarResultadosIndice(filtrado);
+
+  document.getElementById('resultados-indice').scrollTop = 0;
+}
+
 document.getElementById('busca-termo').addEventListener('input', (e) => {
-  const termo = e.target.value.toLowerCase();
-  if (termo.length < 2) {
+  const raw = e.target.value;
+  if (raw.trim().length < 2) {
     document.getElementById('resultados-indice').innerHTML = '';
     return;
   }
-  const filtrado = indiceRemissivo.filter(item => item.termo.toLowerCase().includes(termo));
-  renderizarResultadosIndice(filtrado);
+  renderizarResultadosIndice(filtrarPorTermo(raw));
+});
+
+document.getElementById('btn-buscar-indice').addEventListener('click', () => {
+  const raw = document.getElementById('busca-termo').value;
+  if (raw.trim().length < 2) return;
+  renderizarResultadosIndice(filtrarPorTermo(raw));
+  document.getElementById('resultados-indice').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.getElementById('busca-termo').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') document.getElementById('btn-buscar-indice').click();
 });
 
 function renderizarResultadosIndice(lista) {
@@ -170,9 +224,24 @@ function renderizarResultadosIndice(lista) {
     
     item.artigos.forEach(art => {
       const btn = document.createElement('button');
-      btn.className = 'btn-artigo';
-      btn.textContent = `${item.lei} ${art}`;
-      btn.onclick = () => dispararLinkArtigo(item.lei, art);
+      const vide = typeof art === 'string' && art.match(/^Vide\s+(?:tamb[eé]m\s+)?(.+)$/i);
+      if (vide) {
+        btn.className = 'btn-artigo btn-vide';
+        btn.textContent = art;
+        btn.onclick = () => {
+          const alvo = vide[1].trim();
+          const sigla = VIDE_LEI_MAP[alvo.toLowerCase()];
+          if (sigla) {
+            const lei = minhasLeis.find(l => l.sigla.toUpperCase() === sigla.toUpperCase());
+            if (lei) { chrome.tabs.create({ url: lei.url }); return; }
+          }
+          buscarNoIndice(alvo);
+        };
+      } else {
+        btn.className = 'btn-artigo';
+        btn.textContent = `${item.lei} ${art}`;
+        btn.onclick = () => dispararLinkArtigo(item.lei, art);
+      }
       divArts.appendChild(btn);
     });
     

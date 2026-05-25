@@ -21,6 +21,10 @@ OUTPUT_FILE = (
     r"C:\Users\AlvaroSouzaJr\OneDrive - Macher Serviços em Tecnologia LTDA"
     r"\Documentos\Pessoal\Claude-projects\Meu Vade Mecum\data\indice-remissivo.json"
 )
+OUTPUT_OAB_FILE = (
+    r"C:\Users\AlvaroSouzaJr\OneDrive - Macher Serviços em Tecnologia LTDA"
+    r"\Documentos\Pessoal\Claude-projects\Meu Vade Mecum\data\indice-remissivo-oab.json"
+)
 
 ETIQUETA = "ÍNDICE CF/CP/CPP"
 
@@ -208,16 +212,22 @@ def main():
             else:
                 skipped += 1
 
+    oab     = [e for e in result if e['lei'] == 'OAB']
+    restante = [e for e in result if e['lei'] != 'OAB']
+
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        json.dump(result, f, ensure_ascii=False, indent=2)
+        json.dump(restante, f, ensure_ascii=False, indent=2)
+
+    with open(OUTPUT_OAB_FILE, 'w', encoding='utf-8') as f:
+        json.dump(oab, f, ensure_ascii=False, indent=2)
 
     print("=" * 55)
     print("  Fase 3 - Transformacao OCR para JSON concluida")
     print("=" * 55)
     print(f"  Bullets processados : {total_bullets}")
-    print(f"  Entradas geradas    : {len(result)}")
+    print(f"  Entradas geradas    : {len(restante)}  (indice-remissivo.json)")
+    print(f"  Entradas OAB        : {len(oab)}  (indice-remissivo-oab.json)")
     print(f"  Bullets ignorados   : {skipped}  (referências não reconhecidas)")
-    print(f"  Arquivo de saída    : {OUTPUT_FILE}")
     print("=" * 55)
 
 

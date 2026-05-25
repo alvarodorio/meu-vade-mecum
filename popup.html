@@ -8,6 +8,7 @@
     .btn { background: #0056b3; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
     .btn-danger { background: #dc3545; color: white; border: none; border-radius: 4px; padding: 4px 8px; cursor: pointer; }
     .btn-artigo { background: #e2e8f0; border: 1px solid #cbd5e1; border-radius: 4px; padding: 4px 8px; font-size: 11px; cursor: pointer; margin-right: 4px; margin-bottom: 4px;}
+    .btn-vide { background: #fef9c3; border-color: #ca8a04; color: #78350f; font-style: italic; }
     .lei-item { display: flex; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 5px; padding-bottom: 5px; border-bottom: 1px solid #eee; }
     
     /* Abas */
@@ -35,7 +36,10 @@
   </div>
 
   <div id="tela-indice" class="tela hidden">
-    <input type="text" id="busca-termo" placeholder="Digite uma palavra (ex: Sursis)">
+    <div style="display:flex; gap:4px; margin-bottom:10px;">
+      <input type="text" id="busca-termo" placeholder='Palavra (ex: Sursis) ou "frase exata"' style="margin-bottom:0; flex:1; min-width:0;">
+      <button id="btn-buscar-indice" class="btn" style="width:auto; white-space:nowrap; margin-bottom:0; padding:8px 10px;">Buscar</button>
+    </div>
     <div id="letras-az" style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px;"></div>
     <div id="resultados-indice" style="max-height: 250px; overflow-y: auto;">
       <div style="text-align: center; font-size: 12px; color: #777; margin-top: 20px;">Use a busca ou clique em uma letra.</div>
@@ -51,9 +55,11 @@
     
     <div style="max-height: 120px; overflow-y: auto; margin-bottom: 15px; border-bottom: 1px solid #eee;" id="lista-leis"></div>
     
-    <h4 style="margin: 0 0 5px 0; font-size: 13px;">Importar Índice (JSON)</h4>
-    <textarea id="json-import" rows="3" placeholder='[{"termo": "Pena", "etiqueta": "CP", "lei": "CP", "artigos": ["46"]}]'></textarea>
-    <button id="btn-importar" class="btn" style="background: #6c757d; font-size: 12px;">Importar Dados da IA</button>
+    <div class="hidden">
+      <h4 style="margin: 0 0 5px 0; font-size: 13px;">Importar Índice (JSON)</h4>
+      <textarea id="json-import" rows="3" placeholder='[{"termo": "Pena", "etiqueta": "CP", "lei": "CP", "artigos": ["46"]}]'></textarea>
+      <button id="btn-importar" class="btn" style="background: #6c757d; font-size: 12px;">Importar Dados da IA</button>
+    </div>
   </div>
 
   <script src="popup.js"></script>

@@ -67,6 +67,21 @@ Solução pensada:
 
 ---
 
+## Redesign de UI (alta prioridade visual)
+
+Inspiração: extensão **Planalto Express** (print em `Exemplo de UI/`).
+
+Elementos da UI de referência a adotar:
+- Cabeçalho com nome da extensão, badge de versão e toggle on/off
+- Seções com títulos em caixa-alta e espaçamento generoso
+- Lista de leis com sigla em destaque colorido, nome completo e URL truncada
+- Botões de **editar** (ícone lápis) e **excluir** (X) por lei — em linha
+- Tipografia limpa, hierarquia visual clara, sem a aparência de formulário cru atual
+
+Obs.: o redesign deve manter as três abas (Busca Rápida / Índice / Gerenciar) ou repensar a navegação se a inspiração sugerir algo melhor.
+
+---
+
 ## Features isoladas para versões futuras
 
 *(ideias capturadas durante o desenvolvimento — sem compromisso de data)*

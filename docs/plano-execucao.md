@@ -33,28 +33,49 @@ Status possíveis: `[ ]` pendente · `[→]` em andamento · `[x]` concluído
 
 ## v4.1 — Tratamento de "Vide" como navegação interna
 
-- [ ] Implementar: ao clicar em "Vide X", a busca do índice é acionada automaticamente com o termo X
+- [x] Implementar: ao clicar em "Vide X", a busca do índice é acionada automaticamente com o termo X
+- [x] Suporte a "Vide também X" — extrai o termo correto (ignora o "também")
+- [x] UX: campo de busca destacado em amarelo por 1s para sinalizar a navegação; scroll vai ao topo dos resultados
+- [x] Vide usa busca por `startsWith` — "Vide Réu" mostra RÉU e RÉU > sub-termos (não tudo que contém "réu")
+- [x] Busca manual com suporte a frase exata entre aspas (`"acordo de"`) e busca AND sem aspas
+- [x] Botão "Buscar" ao lado do campo + Enter aciona a busca; `scrollIntoView` direciona para os resultados
+- [x] Entradas OAB removidas do índice principal → salvas em `data/indice-remissivo-oab.json` (para v4.4)
+- [x] JSON regenerado: 6.326 entradas (sem OAB)
+- [ ] Tratar "Vide [nome de lei]" (ex: "Vide ESTATUTO DO DESARMAMENTO", "Vide estatuto da criança e do adolescente") — hoje faz busca sem resultado; ideal: exibir aviso em vez de busca vazia
+- [ ] **284 entradas sem lei**: corrigir no script de transformação o reconhecimento de leis escritas por extenso (ex: "do Código Penal" em vez de "do CP")
+- [ ] **ANPP duplicado**: remover entrada `lei=""` duplicada do `indice-remissivo.json` (manter apenas a `lei="CPP"`)
+- [ ] Reimportar JSON atualizado via `admin/carregar-indice.html`
 - [ ] Testar com casos reais do índice importado
 - [ ] Commit v4.1 + atualizar CHANGELOG.md
 
 ---
 
-## v4.2 — Índice remissivo Súmulas
+## v4.2 — Melhorias na aba Gerenciar
 
-- [ ] Extração OCR das páginas de súmulas
-- [ ] Transformação em JSON
-- [ ] Importar e testar
+- [ ] Adicionar botão **Editar** em cada lei (permite corrigir sigla, nome, URL ou limite sem precisar apagar e recadastrar)
+- [ ] Aviso ao excluir lei que tem entradas no índice remissivo (mostra contagem de remissões afetadas)
 - [ ] Commit v4.2 + atualizar CHANGELOG.md
 
 ---
 
-## v4.3 — Índice remissivo Legislação Complementar
+## v4.3 — Índice remissivo Súmulas
+
+- [ ] Verificar se as súmulas já cobertas no JSON atual (STF/STJ do índice CF/CP/CPP) são suficientes ou se há índice de súmulas separado a extrair
+- [ ] Extração OCR das páginas de súmulas (se necessário)
+- [ ] Transformação em JSON
+- [ ] Importar e testar
+- [ ] Commit v4.3 + atualizar CHANGELOG.md
+
+---
+
+## v4.4 — Índice remissivo Legislação Complementar
 
 - [ ] Extração OCR (volume maior — planejamento específico necessário)
 - [ ] Transformação em JSON
+- [ ] **Antes de mapear cada lei nova:** verificar no Planalto o formato de artigo (`Art. 22.` ou `Art. 22 -`) e confirmar que `#:~:text=` funciona
 - [ ] Mecanismo de descoberta de URLs para leis não cadastradas
 - [ ] Importar e testar
-- [ ] Commit v4.3 + atualizar CHANGELOG.md
+- [ ] Commit v4.4 + atualizar CHANGELOG.md
 
 ---
 

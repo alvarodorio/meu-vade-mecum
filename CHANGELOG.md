@@ -6,6 +6,22 @@ O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/) e o 
 
 ---
 
+## [4.1.0] — 2026-05-24
+
+### Adicionado
+- **ECA e ED** adicionados ao `defaultLeis` (Estatuto da Criança e do Adolescente e Estatuto do Desarmamento) com URLs e limites corretos
+- **`VIDE_LEI_MAP`**: clique em "Vide ESTATUTO DO DESARMAMENTO" ou "Vide estatuto da criança e do adolescente" agora abre a lei no Planalto, em vez de busca sem resultado
+- **Busca avançada no campo de índice**: suporte a frase exata entre aspas (`"acordo de"`) e busca AND implícita para múltiplas palavras sem aspas
+- **Botão "Buscar"** ao lado do campo de busca do índice; Enter também aciona; `scrollIntoView` direciona para os resultados
+- **`data/indice-remissivo-oab.json`**: 125 entradas do Estatuto da OAB separadas do índice principal (reservadas para v4.4)
+
+### Alterado
+- Navegação "Vide" usa `startsWith` — "Vide Réu" mostra apenas RÉU e RÉU > sub-termos, não todos que contêm "réu"
+- Índice regenerado: 6.326 entradas (sem OAB)
+- Seção "Importar Índice (JSON)" ocultada da aba Gerenciar (funcionalidade admin, não relevante para o usuário final)
+
+---
+
 ## [4.0.0] — 2026-05-24
 
 ### Adicionado
